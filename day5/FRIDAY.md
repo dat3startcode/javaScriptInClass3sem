@@ -2,9 +2,9 @@
 
 ## Friday objectives
 
-Today we recap all the things we learned this week:
-
-
+- Deployment of a simple web application to NGINX
+- Car Game (OOP)
+- CA 1
 
 ## Friday homework
 
