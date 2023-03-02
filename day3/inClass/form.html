@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+
+<form>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Name.."/>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Password.."/>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Email.."/>
+    <button type="submit">Click</button>
+</form>
+
+<script>
+
+    const form = document.querySelector("form");
+
+    // Example 1
+    // form.addEventListener('submit', (event) => {
+    //     event.preventDefault();
+    //     const data = new FormData(form);
+    //     console.log(data);
+    //
+    //     const name = data.get("name");
+    //     const password = data.get("password")
+    //     const email = data.get("email")
+    //
+    //     const formData = `${name}, ${password}, ${email}`;
+    //     console.log(formData)
+    //     form.reset();
+    // })
+
+    // Example 2
+
+    const elements = document.querySelector('form').elements;
+
+    const initialValue = {};
+    // const fields = ["name", "password", "email"];
+
+    function filterFieldsArray(el) {
+        return el.name !== "";
+    }
+
+    function getFieldsValues() {
+        Object.values(elements)
+            .filter(filterFieldsArray)
+            .map( e => (initialValue[e.name] = e.value))
+
+    }
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        getFieldsValues();
+        console.log("Object: ", initialValue);
+    })
+
+
+
+
+</script>
+
+</body>
+</html>

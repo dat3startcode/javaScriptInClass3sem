@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = form.elements.name.value.trim();
+        const email = form.elements.email.value.trim();
+        const message = form.elements.message.value.trim();
+
+        if (name === '') {
+            alert('Please enter your name.');
+            return;
+        }
+
+        if (email === '') {
+            alert('Please enter your email.');
+            return;
+        }
+
+        if (message === '') {
+            alert('Please enter a message.');
+            return;
+        }
+
+        const data = new FormData(form)
+        console.log(data.get("name"));
+        console.log(data.get("email"));
+        console.log(data.get("message"));
+
+    });
+</script>
+
+</body>
+</html>
