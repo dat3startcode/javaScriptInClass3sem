@@ -4,6 +4,7 @@
 
 Forms, Ajax, fetch, and promises
 
+- learn about Vite and how to use it
 - learn all about Ajax and how to use it
 - learn about the fetch API and how to use it
 - learn about promises and how to use them

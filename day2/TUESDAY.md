@@ -3,6 +3,8 @@
 ## Tuesday objectives
 
 - recap from yesterday (arrays, objects, map, filter, reduce, callbacks)
+- node, npm, npx
+- create a new project with npm init
 - the dom
 - events
 - forms
