@@ -1,7 +1,12 @@
 # Excercise
 
 ## How to
-Everything should be included in this repo for you to run this. But You need to have Nodejs installed on your machine.
+Create three files as follows:
+ - jsconfig.json
+ - assignment.js
+ - simple-transactions.json
+
+Copy the content from the files from the same name in this repo into the files you just created.
 
 From your terminal, navigate to the root of this project, and run `node assignment.js`. If everything is in order, you should see 'Running assignment...' in your terminal.
 

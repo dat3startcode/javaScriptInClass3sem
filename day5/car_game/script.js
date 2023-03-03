@@ -12,26 +12,6 @@ class Car {
         );
     }
 
-    draw() {
-
-    }
-
-    moveRight() {
-
-    }
-
-    moveLeft() {
-
-    }
-
-    moveUp() {
-
-    }
-
-    moveDown() {
-
-    }
-
 }
 
 // moveCar function
