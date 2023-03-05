@@ -1,29 +1,64 @@
-// 1. create a random number from 1 to 20
-// 2. create a variable for the score
-// 3. create a variable for the highscore
-// 4. create a function that takes a message as input and displays it in the message class
-// 5. Add an event listener to the check button
-// 6. Add an event listener to the again button
-// 7. In the check button event listener, do the following:
-    // 1. Get the input value
-    // 2. Check if there is an input
-    // 3. Check if the input is equal to the secret number
-    // 4. Check if the input is higher or lower than the secret number
-    // 5. Check if the score is higher than the highscore
-    // 6. Check if you lost the game
-    // 7. Remember to update the score and the highscore in the DOM
-// 8. In the again button event listener, do the following:
-    // 1. Reset the score
-    // 2. Reset the secret number
-    // 3. Reset the message
-    // 4. Reset the input
-    // 5. Reset the score in the DOM
-    // 6. Reset the number in the DOM
-    // 7. Reset the input in the DOM
-    // 8. Reset the highscore in the DOM
-    // 9. Reset the background color
-    // 10. Reset the width of the number
-// 9. Create a function that resets the input
-// 10. Call the function at the end of the script
+// https://github.com/Devzstudio/Vscode-Emoji-Snippets/blob/master/snippets/snippets.json
 
+// random number from 1 to 20
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let score = 20;
+let highscore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
+function init() {
+  document.querySelector(".guess").value = "";
+}
+
+document.querySelector(".check").addEventListener("click", function () {
+  const guess = Number(document.querySelector(".guess").value);
+
+  // no input
+  if (!guess) {
+    displayMessage("⛔️ NO NUMBER!");
+
+    // when player wins
+  } else if (guess === secretNumber) {
+    displayMessage("🤟 Correct Number!");
+    document.querySelector(".number").textContent = secretNumber;
+
+    // change style
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "30rem";
+
+    // highscore
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector(".highscore").textContent = highscore;
+    }
+
+    // When guess is wrong
+  } else if (guess !== secretNumber) {
+    if (score > 1) {
+      displayMessage(guess > secretNumber ? " Too High!" : "Too Low!");
+      score = score - 1;
+      document.querySelector(".score").textContent = score;
+    } else {
+      displayMessage(" You lost the game!");
+      document.querySelector(".score").textContent = 0;
+    }
+  }
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  displayMessage("Start guessing...");
+
+  document.querySelector(".score").textContent = score;
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".guess").value = "";
+
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+});
+
+init();
